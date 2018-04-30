@@ -1,0 +1,74 @@
+{% extends "myapp/base.html" %}
+{% block content %}
+<div class="container form-group">
+	<br>
+	
+	<div class="row">
+		<div class="col-lg-10">
+			<h1>Take Orders</h1>		
+		</div>
+		<div class="col-lg-2">
+			<button class="btn btn-success" onclick="window.location='{% url 'order' %}'">Go Back</button><br><br>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<h3>Customer Name</h3>
+		</div>
+		<div class="col-lg-9">
+			<input type="text" class="form-control" placeholder="Customer Name">
+		</div>
+	</div>
+	<br><br>
+	<table class="table table-condensed" >
+	    <tbody id="add_input_fields">
+	        <tr>
+	           <td><input type="text" class="form-control" placeholder="Item Name" /></td>
+	           <td><input type="text" class="form-control" placeholder="Quantity" /></td>
+	           <td><input type="text" class="form-control" placeholder="Rate" /></td>
+	        </tr>
+	    </tbody>
+	</table>
+
+	<button type="submit" class="btn btn-success">Total</button> 
+
+</div>
+{% endblock %}
+
+
+<!-- 
+<table class="table table-bordered table-condensed">
+    <tbody>
+        <tr>
+           <td><input type="text" class="form-control" placeholder="Item Name" /></td>
+           <td><input type="text" class="form-control" placeholder="Quantity" /></td>
+           <td><input type="text" class="form-control" placeholder="Rate" /></td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+
+
+<!-- <form method="POST">
+	{% csrf_token %}
+	<table class="table table-bordered table-condensed">
+	<tbody>
+	{% for field in form %}
+        <tr>
+        	{% if field.name == "Customer" %}
+
+        	{% else %}
+           	<td><input type="text" class="form-control" placeholder="{{field.label}}" /></td>
+           	<small class="text-danger">{{ field.errors }}</small>
+            {% endif %}
+        </tr>
+		    
+	{% endfor %}
+	</tbody>
+	</table>
+
+
+	<br>
+	<button type="submit" class="btn btn-success">Submit</button>
+</form> -->

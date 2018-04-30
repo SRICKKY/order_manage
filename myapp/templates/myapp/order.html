@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="jumbotron">
+		<h1 class="text-center">Order Managing Form</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-10">
+			<a href="/add" class="btn btn-info">Take Order</a>
+		</div>
+		<div class="col-lg-2">
+			{% if request.user.is_authenticated %}
+				Hello, <small>{{request.user.username}}</small>
+				<a href="/logout">Logout</a>
+			{% endif %}
+		</div>
+		
+	</div>	
+</div>
+{% endblock %}
