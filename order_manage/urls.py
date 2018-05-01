@@ -10,5 +10,5 @@ urlpatterns = [
     path('login/',auth_views.login,name='login'),
     path('logout/',auth_views.logout,{'next_page': '/'},name='logout'),
     path('order/', views.order,name='order'),
-    path('add/', views.add,name='add'),
+    path('order/add', views.add,name='add'),
 ]

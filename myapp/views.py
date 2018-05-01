@@ -35,11 +35,6 @@ def signup(request):
 
 
 @login_required
-def order(request):
-	orders = Order.objects.filter(name=request.user)
-	return render(request, 'myapp/order.html',{'orders': orders})
-
-@login_required
 def details(request, pk):
 	order = Order.objects.get(id=pk)
 	return render(request, 'myapp/details.html', {'order': order})
@@ -52,24 +47,25 @@ def add(request):
 
 		if form.is_valid():
 			name = form.cleaned_data['customer_name']
-			item = form.cleaned_data['item']
-			quantity = form.cleaned_data['quantity']
-			rate = form.cleaned_data['rate']
+			# item = form.cleaned_data['item']
+			# quantity = form.cleaned_data['quantity']
+			# rate = form.cleaned_data['rate']
 			total = form.cleaned_data['total']
 
-			Order.objects.create(name=name,item=item,quantity=quantity,rate=rate,total=total).save()
+			# Order.objects.create(name=name,item='',quantity='',rate='',total=total).save()
+			Order.objects.create(name=name,total=total).save()
 
-			return HttpResponseRedirect('/')
+			return HttpResponseRedirect('/order')
 	else:
 		form = OrderForm()
 
 	return render(request, 'myapp/form.html',{'form':form})
 
-@login_required
-def delete(request, pk):
-	if request.method == 'DELETE':
-		order = get_object_or_404(Entry,pk=pk)
-		order.delete()
+# @login_required
+# def delete(request, pk):
+# 	if request.method == 'DELETE':
+# 		order = get_object_or_404(Entry,pk=pk)
+# 		order.delete()
 		
-	return HttpResponseRedirect('/order')
+# 	return HttpResponseRedirect('/order')
 

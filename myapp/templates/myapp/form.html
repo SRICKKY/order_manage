@@ -20,20 +20,75 @@
 		</div>
 	</div>
 	<br><br>
-	<table class="table table-condensed" >
-	    <tbody id="add_input_fields">
-	        <tr>
-	           <td><input type="text" class="form-control" placeholder="Item Name" /></td>
-	           <td><input type="text" class="form-control" placeholder="Quantity" /></td>
-	           <td><input type="text" class="form-control" placeholder="Rate" /></td>
-	        </tr>
-	    </tbody>
+	<table class="table table-condensed">
+		<tbody id="add_input_fields">
+			<form POST="POST">
+				{% csrf_token %}
+				<tr>
+					<td><input type="text" class="form-control" placeholder="Item" /></td>
+					<td><input type="text" class="form-control" placeholder="Quantity" /></td>
+					<td><input type="text" class="form-control" placeholder="Rate" id="total" /></td>
+				</tr>
+			</form>
+		</tbody>
 	</table>
+	<input type="text" name="total" class="form-control" id="final-total" placeholder="$">
+	<br>
+	<button type="submit" class="btn btn-success">Submit</button>
+	
 
-	<button type="submit" class="btn btn-success">Total</button> 
+	
 
 </div>
 {% endblock %}
+
+
+
+
+
+
+
+<!-- ########################################################## -->
+
+
+<!-- <table class="table table-condensed" >
+    <tbody id="add_input_fields">
+        <tr>
+           <td><input type="text" class="form-control" placeholder="Item Name" name="item_name[]"/></td>
+           <td><input type="text" class="form-control" placeholder="Quantity" name="quantity[]"/></td>
+           <td><input type="text" class="form-control" placeholder="Rate" name="rate[]"/></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="row">
+	<div class="col-lg-10">
+		<div class="col-lg-8">
+			<input type="text" class="form-control" placeholder="$" value="" id="total_price">
+		</div>
+		<br>
+		<div class="col-lg-4">
+			<button onclick="generate_total()" class="btn btn-success">Total</button>
+		</div>
+	</div>
+	<div class="col-lg-2">
+		<button type="submit" class="btn btn-warning">Submit</button>
+	</div> 
+</div> -->
+<!-- ########################################################### -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- 
